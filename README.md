@@ -1,66 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
+# Gasto Personal - Proyecto de Gestión de Gastos
 
-## About Laravel
+## Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto fue desarrollado por **Kevin Álvarez Díaz**. Se trata de una aplicación web para la gestión de gastos personales. Los usuarios pueden registrar, editar, eliminar y consultar sus gastos categorizados por descripción, monto, fecha y categoría. Esta aplicación utiliza **PHP**, **Laravel**, y **MySQL** para la gestión de datos y autenticación.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologías Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **PHP**: Lenguaje de programación del backend.
+- **Laravel**: Framework PHP utilizado para construir la aplicación.
+- **MySQL**: Sistema de gestión de bases de datos relacional utilizado para almacenar los datos del proyecto.
+- **Composer**: Herramienta de gestión de dependencias para PHP.
+- **Tailwind CSS**: Framework de diseño para crear interfaces de usuario modernas.
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Antes de instalar y ejecutar el proyecto, asegúrate de tener las siguientes tecnologías instaladas en tu máquina:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **PHP 8.0 o superior**.
+- **Composer**: Para gestionar las dependencias del proyecto.
+- **MySQL**: Base de datos donde se almacenarán los registros de gastos.
+- **Node.js y NPM**: Para compilar los recursos frontend.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalación
 
-## Laravel Sponsors
+Sigue estos pasos para clonar y ejecutar este proyecto en tu entorno local.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clonar el repositorio
 
-### Premium Partners
+Clona el repositorio desde GitHub con el siguiente comando:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+```
 
-## Contributing
+### 2. Navegar al directorio del proyecto
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Accede al directorio del proyecto:
 
-## Code of Conduct
+```bash
+cd nombre-del-repositorio
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. Instalar las dependencias de PHP
 
-## Security Vulnerabilities
+Instala las dependencias de PHP utilizando Composer:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+### 4. Configurar el archivo `.env`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copia el archivo `.env.example` y renómbralo a `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Abre el archivo `.env` y configura las siguientes variables con tus datos:
+
+- **DB_CONNECTION**: Debe estar configurado como `mysql`.
+- **DB_HOST**: Dirección de tu servidor MySQL (local o remoto).
+- **DB_PORT**: Generalmente es `3306` para MySQL.
+- **DB_DATABASE**: Nombre de la base de datos que utilizarás.
+- **DB_USERNAME**: Tu nombre de usuario de MySQL.
+- **DB_PASSWORD**: Tu contraseña de MySQL.
+
+Ejemplo:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gastos_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5. Generar la clave de la aplicación
+
+Genera una nueva clave de la aplicación ejecutando el siguiente comando:
+
+```bash
+php artisan key:generate
+```
+
+### 6. Crear la base de datos
+
+Asegúrate de que MySQL esté corriendo en tu máquina y crea la base de datos configurada en el archivo `.env`. Puedes hacerlo a través de la terminal de MySQL o mediante un cliente como **phpMyAdmin**.
+
+Si ya tienes la base de datos creada, asegúrate de que esté vacía antes de correr las migraciones.
+
+### 7. Ejecutar las migraciones
+
+Ejecuta las migraciones para crear las tablas necesarias en la base de datos:
+
+```bash
+php artisan migrate
+```
+
+### 8. Cargar datos de ejemplo (Seeders)
+
+Si deseas cargar datos de ejemplo en la base de datos, puedes ejecutar los seeders. Este proyecto incluye un seeder para crear usuarios de ejemplo:
+
+```bash
+php artisan db:seed
+```
+
+### 9. Ejecutar el servidor de desarrollo
+
+Ahora, puedes ejecutar el servidor de desarrollo integrado de Laravel con el siguiente comando:
+
+```bash
+php artisan serve
+```
+
+Esto iniciará el servidor en `http://127.0.0.1:8000`.
+
+### 10. Acceder a la aplicación
+
+Abre tu navegador y visita la URL proporcionada: [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+### 11. Autenticación
+
+La aplicación utiliza **Laravel Jetstream** para la gestión de autenticación de usuarios. Puedes registrar un nuevo usuario desde la página de inicio de sesión.
+
+### 12. Realizar operaciones
+
+Una vez autenticado, puedes gestionar tus gastos personales. Las operaciones disponibles son:
+
+- **Agregar un gasto**: Registra un nuevo gasto con la descripción, monto, categoría y fecha.
+- **Editar un gasto**: Modifica los detalles de un gasto existente.
+- **Eliminar un gasto**: Borra un gasto previamente registrado.
+- **Consultar los gastos**: Visualiza todos los gastos registrados, ordenados por fecha.
+
+---
+
+## Contribuciones
+
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Realiza un fork de este repositorio.
+2. Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`).
+3. Realiza tus cambios y realiza commits (`git commit -am 'Agregada nueva funcionalidad'`).
+4. Envía un pull request.
+
+---
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+Si tienes alguna duda o sugerencia, no dudes en contactarme.
+
+---
